@@ -49,24 +49,19 @@ resetBtn.addEventListener("click", (e) => {
 
 //Rainbow Button
 
-// function random() {
-// 	let hex = "#";
-// 	const rainbowColor = Math.floor(Math.random() * 16777215).toString(16);
-// 	hexColor = hex + rainbowColor;
-
-// 	return hexColor;
-// }
-
-function rainbow() {
-	//randomnize colors
+function random() {
 	let hex = "#";
 	const rainbowColor = Math.floor(Math.random() * 16777215).toString(16);
 	hexColor = hex + rainbowColor;
 
+	return hexColor;
+}
+
+function rainbow() {
 	let rainbowHover = document.querySelectorAll(".gridCell");
 	rainbowHover.forEach((cell) => {
 		cell.addEventListener("mouseover", (e) => {
-			e.target.style.backgroundColor = hexColor;
+			e.target.style.backgroundColor = random();
 		});
 	});
 }
@@ -74,4 +69,27 @@ function rainbow() {
 const rainbowBtn = document.querySelector(".rainbow");
 rainbowBtn.addEventListener("click", (e) => {
 	rainbow();
+});
+
+function randomGradient() {
+	let hex = "#";
+	const palette = ["D92567", "142240", "F2B705", "D9580D"];
+	const gradient = palette[Math.floor(Math.random() * palette.length)];
+	gradientColor = hex + gradient;
+
+	return gradientColor;
+}
+
+function gradient() {
+	let gradientHover = document.querySelectorAll(".gridCell");
+	gradientHover.forEach((cell) => {
+		cell.addEventListener("mouseover", (e) => {
+			e.target.style.backgroundColor = randomGradient();
+		});
+	});
+}
+
+const gradientBtn = document.querySelector(".gradient");
+gradientBtn.addEventListener("click", (e) => {
+	gradient();
 });
